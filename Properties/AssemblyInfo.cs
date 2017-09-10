@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("IhcMqttGateway")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2017 J.Ø.N Dingus.dk")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
