@@ -116,7 +116,9 @@ namespace IhcMqttGateway {
 					Console.WriteLine("IHC change: " + ihcid.ToString() + "->" + value);
 				string msg = conf.IhcOut[ihcid];
 				ihcstates[ihcid] = value;
-				if (mqttstates.ContainsKey(ihcid) && mqttstates[ihcid] == value) return;
+				if (conf.IhcIn.ContainsKey( msg)) {
+					if (mqttstates.ContainsKey(ihcid) && mqttstates[ihcid] == value) return;
+				}
 				mqttstates[ihcid] = value;
 				mqttclient.Publish(msg, Encoding.ASCII.GetBytes(value));
 			}
