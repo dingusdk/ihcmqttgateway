@@ -15,6 +15,8 @@ namespace IhcMqttGateway {
 		public string IhcUser { get; protected set; }
 		public string IhcPassword { get; protected set; }
 		public string MqttHost { get; protected set; }
+		public string MqttUsername { get; protected set; }
+		public string MqttPassword { get; protected set; }
 
 		public string BooleanFalse { get; protected set; }
 		public string BooleanTrue { get; protected set; }
