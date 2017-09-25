@@ -53,11 +53,13 @@ namespace IhcMqttGateway {
 			mqttclient.MqttMsgPublishReceived += MqttMsgPublishReceived;
 			string clientId = Guid.NewGuid().ToString();
 			Console.WriteLine("Conneting to MQTT");
-			if (conf.MqttUsername != null) {
-				mqttclient.Connect(clientId,conf.MqttUsername,conf.MqttPassword);
-			}
-			else
+			byte conack = conf.MqttUsername != null ?
+				mqttclient.Connect(clientId,conf.MqttUsername,conf.MqttPassword) :
 				mqttclient.Connect(clientId);
+			if ( conack != 0) {
+				Console.WriteLine("Connecting to the MQTT broker failed");
+				return;
+			}
 			Console.WriteLine("Subscribe to MQTT");
 			// Subscribe to all topics!
 			mqttclient.Subscribe(new string[] { "#" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
